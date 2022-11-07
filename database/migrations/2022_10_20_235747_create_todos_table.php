@@ -15,9 +15,11 @@ class CreateTodosTable extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->boolean('finished')->default(false);
+            $table->string('name_client', 80);
+            $table->string('email_client', 80);
+            $table->string('tel_client', 20);
+            $table->string('message_client', 1000);
+            // $table->boolean('finished')->default(false);
             $table->foreignid('user_id')->constrained('users');
             $table->timestamps();
         });

@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory()->create([
-            'name' => 'siu',
-            'email' => 'lsiu_21@alu.uabcs.mx',
+            'name' => 'Administrador Santa Mónic',
+            'email' => 'administrador@santamonica.com.mx',
             ]);
 
         $this->call(TodoSeeder::class);

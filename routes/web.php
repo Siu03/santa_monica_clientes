@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TodoController;
 
+use App\Exports\TodosExport;
+
+use Maatwebsite\Excel\Facades\Excel;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +21,7 @@ use App\Http\Controllers\TodoController;
 
 Route::get('/', function () {
     return view('welcome');
+
 });
 
 Route::get('/dashboard', function () {
@@ -24,5 +29,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/todos',[TodoController::class, 'index'])->middleware(['auth', 'verified'])->name('todos');
+
+Route::get('/todos/export', function () {
+    return Excel::download(new TodosExport, 'clientes_santa_monica.xlsx');
+})->middleware(['auth', 'verified'])->name('todos/export');
 
 require __DIR__.'/auth.php';

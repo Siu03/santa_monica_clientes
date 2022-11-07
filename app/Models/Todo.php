@@ -14,10 +14,16 @@ class Todo extends Model
     // public $timestamp = false;
 
     protected $fillable = [
-        'title',
-        'description',
+        'name_client',
+        'email_client',
+        'tel_client',
+        'message_client',
         'user_id',
-        'finished',
+        // 'finished',
+        // 'title',
+        // 'description',
+        // 'user_id',
+        // 'finished',
     ];
 
     public function user() {

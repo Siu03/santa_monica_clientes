@@ -14,10 +14,12 @@ class TodoFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(3),
-            'description' => $this->faker->sentence(20),
+            'name_client' => $this->faker->name(),
+            'email_client' => $this->faker->email(),
+            'tel_client' => '0',
+            'message_client' => $this->faker->sentence(80),
             'user_id' => 11,
-            'finished' => false
+            // 'finished' => false
         ];
     }
 }
